@@ -61,8 +61,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View v) {
                 Intent intentDetail = new Intent(mContext, DetailActivity.class);
-                intentDetail.putExtra("name",neighbour.getName());
-                intentDetail.putExtra("avatar",neighbour.getAvatarUrl());
+                intentDetail.putExtra("neighbour",neighbour);
                 mContext.startActivity(intentDetail);
             }
         });
@@ -80,7 +79,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-
         @BindView(R.id.layoutCellule)
         public ConstraintLayout cellule;
 

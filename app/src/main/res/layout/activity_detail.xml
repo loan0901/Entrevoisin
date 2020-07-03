@@ -7,7 +7,6 @@
     android:background="#74CACACA"
     tools:context=".ui.neighbour_list.DetailActivity">
 
-
     <ImageView
         android:id="@+id/imageViewAvatar"
         android:layout_width="match_parent"
@@ -17,8 +16,24 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_back_button" />
+    </android.support.v7.widget.Toolbar>
+
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/floatingActionButtonFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:backgroundTint="#F1EEEE"
@@ -34,7 +49,7 @@
     <android.support.v7.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="210dp"
+        android:layout_height="195dp"
         android:layout_marginLeft="15dp"
         android:layout_marginTop="13dp"
         android:layout_marginRight="15dp"
@@ -65,51 +80,51 @@
             <TextView
                 android:id="@+id/textViewLocalisation"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:gravity="center_vertical"
-                android:text="Saint pierre du Mont à 5km"
+                android:text="50 rue ..."
                 android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/textViewTelephone"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:gravity="center_vertical"
-                android:text="+33 6 11 12 13 14"
+                android:text="..."
                 android:textSize="15dp" />
 
             <TextView
                 android:id="@+id/textViewInternet"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="45dp"
                 android:gravity="center_vertical"
-                android:text="www.facebook.fr/Caroline"
+                android:text="..."
                 android:textSize="15dp" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageViewLocalisation"
-            android:layout_width="22dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
+            android:layout_width="30dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginTop="60dp"
-            android:src="@drawable/icon_localisation" />
+            android:src="@drawable/ic_location" />
 
         <ImageView
             android:id="@+id/imageViewTelephone"
-            android:layout_width="22dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="110dp"
-            android:src="@drawable/icon_telephone" />
+            android:layout_width="30dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="105dp"
+            android:src="@drawable/ic_phone" />
 
         <ImageView
             android:id="@+id/imageViewInternet"
-            android:layout_width="22dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="160dp"
-            android:src="@drawable/icon_internet" />
+            android:layout_width="30dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="150dp"
+            android:src="@drawable/ic_internet" />
 
         <ImageView
             android:id="@+id/ligne"
@@ -159,7 +174,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
-                android:text="Bonjour ! Je souhaiterais faire de la marche nordique. Pas initiée, je cherche une ou plusieurs personnes susceptibles de m'accompagner ! J'aime les jeux de cartes tels la belote et le tarot." />
+                android:text="..." />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </android.support.constraint.ConstraintLayout>
