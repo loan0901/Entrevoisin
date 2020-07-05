@@ -39,6 +39,7 @@ public class DetailActivity extends AppCompatActivity {
     String adress;
     String phoneNumber;
     String aboutMe;
+    Boolean favorite;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,10 @@ public class DetailActivity extends AppCompatActivity {
         aboutMeXml = findViewById(R.id.textViewAboutMe);
         internetXml = findViewById(R.id.textViewInternet);
 
-        // Bouton retour //
+        getData();
+        setData();
+
+        /** Bouton retour */
         backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,17 +65,27 @@ public class DetailActivity extends AppCompatActivity {
             }
         });
 
-        // bouton favoris //
+        /** bouton favoris */
         favoriteButton = findViewById(R.id.floatingActionButtonFavorite);
+
+        if (favorite == true) {
+            favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+        } else {
+            favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+        }
+
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+                if (favorite == false) {
+                    favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+                    favorite = true;
+                } else {
+                    favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+                    favorite = false;
+                }
             }
         });
-
-        getData();
-        setData();
     }
 
     private void getData() {
@@ -82,6 +96,7 @@ public class DetailActivity extends AppCompatActivity {
             adress = neighbour.getAddress();
             phoneNumber = neighbour.getPhoneNumber();
             aboutMe = neighbour.getAboutMe();
+            favorite = neighbour.getFavotite();
         }
     }
 
