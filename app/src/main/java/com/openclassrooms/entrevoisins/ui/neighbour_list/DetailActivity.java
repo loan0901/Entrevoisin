@@ -77,13 +77,7 @@ public class DetailActivity extends AppCompatActivity {
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (favorite == false) {
-                    favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
-                    favorite = true;
-                } else {
-                    favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-                    favorite = false;
-                }
+
             }
         });
     }

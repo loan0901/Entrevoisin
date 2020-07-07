@@ -61,7 +61,6 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             @Override
             public void onClick(View v) {
                 Intent intentDetail = new Intent(mContext, DetailActivity.class);
-                intentDetail.putExtra("favorite", neighbour.getFavotite());
                 intentDetail.putExtra("neighbour",neighbour);
                 mContext.startActivity(intentDetail);
             }
