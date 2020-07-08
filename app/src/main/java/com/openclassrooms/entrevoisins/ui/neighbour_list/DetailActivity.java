@@ -31,6 +31,8 @@ public class DetailActivity extends AppCompatActivity {
     ImageButton backButton;
     FloatingActionButton favoriteButton;
 
+    Neighbour mNeighbour;
+
     ImageView avatarXml;
     TextView nameXml;
     TextView adressXml;
@@ -85,10 +87,10 @@ public class DetailActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (favorite == false) {
                     favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
-                    apiService.addFavorite();
+                    apiService.addFavorite(mNeighbour);
                 } else {
                     favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
-                    apiService.removeFavorite();
+                    apiService.removeFavorite(mNeighbour);
                 }
             }
         });
@@ -103,6 +105,7 @@ public class DetailActivity extends AppCompatActivity {
             phoneNumber = neighbour.getPhoneNumber();
             aboutMe = neighbour.getAboutMe();
             favorite = neighbour.getFavotite();
+            mNeighbour = neighbour;
         }
     }
 
