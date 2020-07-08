@@ -16,13 +16,17 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.SingleRequest;
 import com.openclassrooms.entrevoisins.R;
+import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import org.w3c.dom.Text;
 
 import butterknife.OnClick;
 
 public class DetailActivity extends AppCompatActivity {
+
+    private NeighbourApiService apiService;
 
     ImageButton backButton;
     FloatingActionButton favoriteButton;
@@ -46,6 +50,8 @@ public class DetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
+        apiService = DI.getNeighbourApiService();
+
         avatarXml = findViewById(R.id.imageViewAvatar);
         nameXml = findViewById(R.id.textViewName);
         adressXml = findViewById(R.id.textViewLocalisation);
@@ -68,16 +74,22 @@ public class DetailActivity extends AppCompatActivity {
         /** bouton favoris */
         favoriteButton = findViewById(R.id.floatingActionButtonFavorite);
 
-        if (favorite == true) {
-            favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
-        } else {
+        if (favorite == false) {
             favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+        } else {
+            favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
         }
 
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (favorite == false) {
+                    favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
+                    apiService.addFavorite();
+                } else {
+                    favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
+                    apiService.removeFavorite();
+                }
             }
         });
     }
