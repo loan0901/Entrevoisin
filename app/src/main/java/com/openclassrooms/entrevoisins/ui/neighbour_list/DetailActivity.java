@@ -97,15 +97,14 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        Neighbour neighbour = getIntent().getParcelableExtra("neighbour");
-        if (neighbour != null) {
-            avatar = neighbour.getAvatarUrl();
-            name = neighbour.getName();
-            adress = neighbour.getAddress();
-            phoneNumber = neighbour.getPhoneNumber();
-            aboutMe = neighbour.getAboutMe();
-            favorite = neighbour.getFavotite();
-            mNeighbour = neighbour;
+        mNeighbour = getIntent().getParcelableExtra("neighbour");
+        if (mNeighbour != null) {
+            avatar = mNeighbour.getAvatarUrl();
+            name = mNeighbour.getName();
+            adress = mNeighbour.getAddress();
+            phoneNumber = mNeighbour.getPhoneNumber();
+            aboutMe = mNeighbour.getAboutMe();
+            favorite = mNeighbour.getFavotite();
         }
     }
 
