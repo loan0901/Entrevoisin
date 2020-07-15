@@ -76,7 +76,7 @@ public class DetailActivity extends AppCompatActivity {
         /** bouton favoris */
         favoriteButton = findViewById(R.id.floatingActionButtonFavorite);
 
-        if (favorite == false) {
+        if (!favorite) {
             favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
         } else {
             favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
@@ -85,7 +85,7 @@ public class DetailActivity extends AppCompatActivity {
         favoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (favorite == false) {
+                if (!favorite) {
                     favoriteButton.setImageResource(R.drawable.ic_star_white_24dp);
                     apiService.addFavorite(mNeighbour);
                 } else {
