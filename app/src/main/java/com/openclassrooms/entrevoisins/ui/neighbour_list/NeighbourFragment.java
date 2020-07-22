@@ -49,7 +49,7 @@ public class NeighbourFragment extends Fragment {
         mApiService = DI.getNeighbourApiService();
         Bundle bundle = this.getArguments();
         if (bundle != null) {
-            adapterPosition = bundle.getInt("position",0);
+            adapterPosition = bundle.getInt("position",-1);
         }
     }
 
