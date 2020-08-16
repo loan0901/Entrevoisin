@@ -49,7 +49,6 @@ public class NeighboursListTest {
 
     // This is fixed
     private static int ITEMS_COUNT = 12;
-    private static int expectedCount = 1;
 
     private ListNeighbourActivity mActivity;
 
@@ -90,7 +89,7 @@ public class NeighboursListTest {
     public void openDetailActivity() {
         // clic sur la cellule:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
-        //check si le layout detail est ouverte (grace au textView "A propos de moi") :
+        //check si le layout detail est ouverte :
         onView(allOf(withId(R.id.detailActivity), isDisplayed())).check(matches(isDisplayed()));
     }
 
@@ -98,7 +97,7 @@ public class NeighboursListTest {
     public void checkDetailName() {
         // clic sur la cellule:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
-        //
+        // verifier le nom.
         onView(withId(R.id.textViewName)).check(matches(withText("Jack")));
     }
 
@@ -112,9 +111,6 @@ public class NeighboursListTest {
         // ouvrir le fragment favorite:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(swipeLeft());
         // verifier si la liste comporte bien un profil en plus:
-        /** \/ \/ \/ \/ \/ \/ PROBLEME \/ \/ \/ \/ \/ \/   */
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(1));
-        //NOTE : le probleme peut venir du check sur le second fragment.
-        //NOTE : (si je test avec le 1er fragment avec cette technique le test reussi.)
     }
 }

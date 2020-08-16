@@ -70,7 +70,6 @@ public class NeighbourServiceTest {
         assertTrue(neighbour.getName().equals("Caroline"));
     }
 
-    /** Methode a revoir */
     @Test
     public void getNeighbourFavorite() {
         List<Neighbour> neighbour = service.getNeighbours();
