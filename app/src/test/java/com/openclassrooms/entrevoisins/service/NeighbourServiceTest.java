@@ -2,8 +2,11 @@ package com.openclassrooms.entrevoisins.service;
 
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.AddNeighbourActivity;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailActivity;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourPagerAdapter;
 import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter;
+import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
 
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
@@ -11,6 +14,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;
@@ -45,13 +49,32 @@ public class NeighbourServiceTest {
     }
 
     @Test
-    public void getNeighbourFavorite() {
+    public void addNeighbourToFavorite() {
+        Neighbour neighbourToAdd = service.getNeighbours().get(0);
+        service.addFavorite(neighbourToAdd);
+        Boolean favorite = neighbourToAdd.getFavotite();
+        assertTrue(favorite.equals(true));
+    }
 
+    @Test
+    public void removeNeighbourToFavorite() {
+        Neighbour neighbourToAdd = service.getNeighbours().get(0);
+        service.removeFavorite(neighbourToAdd);
+        Boolean favorite = neighbourToAdd.getFavotite();
+        assertTrue(favorite.equals(false));
     }
 
     @Test
     public void getNeighbourName() {
         Neighbour neighbour = service.getNeighbours().get(0);
         assertTrue(neighbour.getName().equals("Caroline"));
+    }
+
+    /** Methode a revoir */
+    @Test
+    public void getNeighbourFavorite() {
+        List<Neighbour> neighbour = service.getNeighbours();
+        List<Neighbour> expectedNeighbours = service.getFavoriteNeighbour();
+        assertFalse(expectedNeighbours.equals(neighbour));
     }
 }
