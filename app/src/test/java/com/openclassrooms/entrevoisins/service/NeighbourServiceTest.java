@@ -2,11 +2,6 @@ package com.openclassrooms.entrevoisins.service;
 
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.AddNeighbourActivity;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.DetailActivity;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.ListNeighbourPagerAdapter;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.MyNeighbourRecyclerViewAdapter;
-import com.openclassrooms.entrevoisins.ui.neighbour_list.NeighbourFragment;
 
 import org.hamcrest.collection.IsIterableContainingInAnyOrder;
 import org.junit.Before;
@@ -14,7 +9,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertFalse;

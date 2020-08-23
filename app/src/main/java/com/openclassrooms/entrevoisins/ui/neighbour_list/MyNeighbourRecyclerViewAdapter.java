@@ -60,7 +60,7 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         holder.cellule.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentDetail = new Intent(mContext, DetailActivity.class);
+                Intent intentDetail = new Intent(mContext, NeighbourDetailActivity.class);
                 intentDetail.putExtra("neighbour",neighbour);
                 mContext.startActivity(intentDetail);
             }

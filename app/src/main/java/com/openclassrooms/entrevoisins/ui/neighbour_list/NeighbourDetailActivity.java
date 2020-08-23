@@ -1,43 +1,44 @@
 package com.openclassrooms.entrevoisins.ui.neighbour_list;
 
-import android.graphics.drawable.Drawable;
-import android.support.annotation.DrawableRes;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.bumptech.glide.request.SingleRequest;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.di.DI;
 import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
-import org.w3c.dom.Text;
+import butterknife.BindView;
 
-import butterknife.OnClick;
-
-public class DetailActivity extends AppCompatActivity {
+public class NeighbourDetailActivity extends AppCompatActivity {
 
     private NeighbourApiService apiService;
 
-    ImageButton backButton;
-    FloatingActionButton favoriteButton;
-
     Neighbour mNeighbour;
 
+    @BindView(R.id.backButton)
+    ImageButton backButton;
+    @BindView(R.id.floatingActionButtonFavorite)
+    FloatingActionButton favoriteButton;
+
+    @BindView(R.id.imageViewAvatar)
     ImageView avatarXml;
+    @BindView(R.id.textViewName)
     TextView nameXml;
+    @BindView(R.id.textViewLocalisation)
     TextView adressXml;
+    @BindView(R.id.textViewTelephone)
     TextView phoneNumberXml;
+    @BindView(R.id.textViewAboutMe)
     TextView aboutMeXml;
+    @BindView(R.id.textViewInternet)
     TextView internetXml;
 
     String name;
@@ -51,21 +52,12 @@ public class DetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
-
         apiService = DI.getNeighbourApiService();
-
-        avatarXml = findViewById(R.id.imageViewAvatar);
-        nameXml = findViewById(R.id.textViewName);
-        adressXml = findViewById(R.id.textViewLocalisation);
-        phoneNumberXml = findViewById(R.id.textViewTelephone);
-        aboutMeXml = findViewById(R.id.textViewAboutMe);
-        internetXml = findViewById(R.id.textViewInternet);
 
         getData();
         setData();
 
         /** Bouton retour */
-        backButton = findViewById(R.id.backButton);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,8 +66,6 @@ public class DetailActivity extends AppCompatActivity {
         });
 
         /** bouton favoris */
-        favoriteButton = findViewById(R.id.floatingActionButtonFavorite);
-
         if (!favorite) {
             favoriteButton.setImageResource(R.drawable.ic_star_border_white_24dp);
         } else {
