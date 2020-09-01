@@ -16,6 +16,7 @@ import com.openclassrooms.entrevoisins.model.Neighbour;
 import com.openclassrooms.entrevoisins.service.NeighbourApiService;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class NeighbourDetailActivity extends AppCompatActivity {
 
@@ -53,6 +54,7 @@ public class NeighbourDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         apiService = DI.getNeighbourApiService();
+        ButterKnife.bind(this);
 
         getData();
         setData();

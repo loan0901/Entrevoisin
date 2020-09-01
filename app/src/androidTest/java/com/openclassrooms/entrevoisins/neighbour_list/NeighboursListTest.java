@@ -76,7 +76,7 @@ public class NeighboursListTest {
     }
 
     @Test
-    public void openDetailActivity() {
+    public void openNeighbourDetailActivity() {
         // clic sur la cellule:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
         // check si le layout detail est ouverte :
