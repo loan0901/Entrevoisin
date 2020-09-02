@@ -70,7 +70,7 @@ public class NeighboursListTest {
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(ITEMS_COUNT));
         // When perform a click on a delete icon
         onView(allOf(withId(R.id.list_neighbours), isDisplayed()))
-                .perform(actionOnItemAtPosition(1, new DeleteViewAction()));
+                .perform(actionOnItemAtPosition(10, new DeleteViewAction()));
         // Then : the number of element is 11
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(ITEMS_COUNT-1));
     }
@@ -92,15 +92,15 @@ public class NeighboursListTest {
     }
 
     @Test
-    public void checkFavoriteList() {
+    public void FavoriteTabShouldContainsOnlyFavoritesNeighbours(){
         // ajouter un voisin favoris
-        onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
-        onView(allOf(withId(R.id.detailActivity), isDisplayed()));
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(actionOnItemAtPosition(3, click()));
+        onView(allOf(withId(R.id.detailActivity),isDisplayed()));
         onView(withId(R.id.floatingActionButtonFavorite)).perform(click());
         pressBack();
         // ouvrir le fragment favorite:
-        onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(swipeLeft());
+        onView(allOf(withId(R.id.list_neighbours),isDisplayed())).perform(swipeLeft());
         // verifier si la liste comporte bien un profil en plus:
-        onView(allOf(withId(R.id.list_neighbours), isDisplayed())).check(withItemCount(1));
+        onView(allOf(withText("Vincent"),isDisplayed())).perform(click());
     }
 }
