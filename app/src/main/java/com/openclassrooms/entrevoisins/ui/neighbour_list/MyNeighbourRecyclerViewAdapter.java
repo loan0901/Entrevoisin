@@ -10,17 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.openclassrooms.entrevoisins.R;
 import com.openclassrooms.entrevoisins.events.DeleteNeighbourEvent;
 import com.openclassrooms.entrevoisins.model.Neighbour;
-
 import org.greenrobot.eventbus.EventBus;
-
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -57,8 +53,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
             }
         });
 
-        /** NeighbourDetailActivity */
-        holder.cellule.setOnClickListener(new View.OnClickListener() {
+        // NeighbourDetailActivity
+        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intentDetail = new Intent(mContext, NeighbourDetailActivity.class);
@@ -80,8 +76,8 @@ public class MyNeighbourRecyclerViewAdapter extends RecyclerView.Adapter<MyNeigh
         public TextView mNeighbourName;
         @BindView(R.id.item_list_delete_button)
         public ImageButton mDeleteButton;
-        @BindView(R.id.layoutCellule)
-        public ConstraintLayout cellule;
+        @BindView(R.id.rawItem)
+        public ConstraintLayout itemLayout;
 
         public ViewHolder(View view) {
             super(view);

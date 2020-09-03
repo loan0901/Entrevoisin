@@ -77,7 +77,7 @@ public class NeighboursListTest {
 
     @Test
     public void openNeighbourDetailActivity() {
-        // clic sur la cellule:
+        // clic sur la itemLayout:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
         // check si le layout detail est ouverte :
         onView(allOf(withId(R.id.detailActivity), isDisplayed())).check(matches(isDisplayed()));
@@ -85,7 +85,7 @@ public class NeighboursListTest {
 
     @Test
     public void checkDetailName() {
-        // clic sur la cellule:
+        // clic sur la itemLayout:
         onView(allOf(withId(R.id.list_neighbours), isDisplayed())).perform(actionOnItemAtPosition(1,click()));
         // verifier le nom.
         onView(withId(R.id.textViewName)).check(matches(withText("Jack")));

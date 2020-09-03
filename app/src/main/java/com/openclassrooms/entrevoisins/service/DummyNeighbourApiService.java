@@ -41,20 +41,19 @@ public class DummyNeighbourApiService implements  NeighbourApiService {
     @Override
     public void addFavorite(Neighbour neighbour) {
         int position = neighbours.indexOf(neighbour);
-        neighbours.get(position).setFavorite(true);
+        neighbours.get(position).setIsFavorite(true);
     }
 
     @Override
     public void removeFavorite(Neighbour neighbour) {
         int position = neighbours.indexOf(neighbour);
-        neighbours.get(position).setFavorite(false);
+        neighbours.get(position).setIsFavorite(false);
     }
 
     @Override
     public List<Neighbour> getFavoriteNeighbour() {
-        int i;
         List<Neighbour> favoriteNeighbour = new ArrayList<>();
-        for(i = 0; i < neighbours.size(); i++) {
+        for(int i = 0; i < neighbours.size(); i++) {
             if (neighbours.get(i).getFavotite()) {
                 favoriteNeighbour.add(neighbours.get(i));
             }

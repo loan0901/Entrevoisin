@@ -29,7 +29,7 @@ public class Neighbour implements Parcelable {
     private String aboutMe;
 
     /** Favorite */
-    private Boolean favorite;
+    private Boolean isFavorite;
 
     /**
      * Constructor
@@ -38,14 +38,14 @@ public class Neighbour implements Parcelable {
      * @param avatarUrl
      */
     public Neighbour(long id, String name, String avatarUrl, String address,
-                     String phoneNumber, String aboutMe, Boolean favorite) {
+                     String phoneNumber, String aboutMe, Boolean isFavorite) {
         this.id = id;
         this.name = name;
         this.avatarUrl = avatarUrl;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.aboutMe = aboutMe;
-        this.favorite = favorite;
+        this.isFavorite = isFavorite;
     }
 
     protected Neighbour(Parcel in) {
@@ -56,7 +56,7 @@ public class Neighbour implements Parcelable {
         phoneNumber = in.readString();
         aboutMe = in.readString();
         byte tmpFavorite = in.readByte();
-        favorite = tmpFavorite == 0 ? null : tmpFavorite == 1;
+        isFavorite = tmpFavorite == 0 ? null : tmpFavorite == 1;
     }
 
     public static final Creator<Neighbour> CREATOR = new Creator<Neighbour>() {
@@ -120,11 +120,11 @@ public class Neighbour implements Parcelable {
     }
 
     public boolean getFavotite() {
-        return favorite;
+        return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        this.favorite = favorite;
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
     @Override
@@ -153,6 +153,6 @@ public class Neighbour implements Parcelable {
         dest.writeString(address);
         dest.writeString(phoneNumber);
         dest.writeString(aboutMe);
-        dest.writeByte((byte) (favorite == null ? 0 : favorite ? 1 : 2));
+        dest.writeByte((byte) (isFavorite == null ? 0 : isFavorite ? 1 : 2));
     }
 }
